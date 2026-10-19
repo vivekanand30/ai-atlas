@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Dembrandt Skills",
+    "tool": "dembrandt-skills",
+    "url": "https://github.com/dembrandt/dembrandt-skills",
+    "date": "2026-10-19",
+    "verdict": "added",
+    "source": "YouTube video on design MCPs",
+    "evidence": "118★ · created Apr 2026 · 100 commits Aug–Oct 2026 · MIT · 45 skills · same team as Dembrandt (3.7k★)",
+    "summary": "First declined as too young. After reading the skills, I reversed that: each one cites its standard (WCAG 2.2, EN 301 549), gives concrete rules (state colors derived in HSL, six button states), and ships trigger metadata so agents load only what's relevant. It fills a UX-judgment gap nothing else on the list covers. The low star count reflects age, not quality."
+  },
+  {
+    "name": "Dembrandt",
+    "tool": "dembrandt",
+    "url": "https://github.com/dembrandt/dembrandt",
+    "date": "2026-10-19",
+    "verdict": "added",
+    "source": "YouTube video on design MCPs",
+    "evidence": "3.7k★ · 11 months old · active · MIT · CLI + MCP server",
+    "summary": "Best at one clear job: extracting a live site's design system into Tailwind, shadcn or W3C tokens. Proven adoption and active releases."
+  },
+  {
+    "name": "App Store Screenshots",
+    "tool": "app-store-screenshots",
+    "url": "https://github.com/ParthJadhav/app-store-screenshots",
+    "date": "2026-10-19",
+    "verdict": "added",
+    "source": "YouTube video on design MCPs",
+    "evidence": "7.4k★ · 7 months · 13 contributors · MIT",
+    "summary": "Narrow but clearly the best at it: a store-ready screenshot pipeline for every required size, with a real accepted App Store listing as proof."
+  },
+  {
+    "name": "genjutsu",
+    "tool": "genjutsu",
+    "url": "https://github.com/AThevon/genjutsu",
+    "date": "2026-10-19",
+    "verdict": "added",
+    "source": "YouTube video on design MCPs",
+    "evidence": "570★ · 7 months · active · MIT · published run transcripts and costs",
+    "summary": "Unusually transparent: it publishes full transcripts and costs of real runs. Its approve-a-plan-first workflow for motion is distinctive. Mostly one maintainer, so it gets re-reviewed next quarter."
+  },
+  {
+    "name": "Responsively App",
+    "tool": "responsively",
+    "url": "https://github.com/responsively-org/responsively-app",
+    "date": "2026-10-19",
+    "verdict": "added",
+    "source": "YouTube video on design MCPs",
+    "evidence": "25k★ · 7 years · active · AGPL-3.0",
+    "summary": "Not AI, so at first it was out of scope. Added once the Companion Tools category existed: it's the fastest way to verify AI-generated UI on every screen size."
+  },
+  {
+    "name": "Awwwards MCP",
+    "tool": "",
+    "url": "https://github.com/INSANE0777/Awwwards-mcp",
+    "date": "2026-10-19",
+    "verdict": "watchlist",
+    "source": "YouTube video on design MCPs",
+    "evidence": "196★ · 1 month · 99% of commits from one person · scrapes awwwards.com",
+    "summary": "Impressive 25-tool design-reference MCP, but too new and built on scraping a third-party site."
+  },
+  {
+    "name": "Brag",
+    "tool": "",
+    "url": "https://github.com/latent-spaces/brag",
+    "date": "2026-10-19",
+    "verdict": "watchlist",
+    "source": "YouTube video on design MCPs",
+    "evidence": "16.8k★ · 4 months · 10 contributors · MIT",
+    "summary": "Viral launch-video skill. Waiting to see whether maintenance and quality outlast the hype."
+  }
+]

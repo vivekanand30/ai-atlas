@@ -1,0 +1,149 @@
+[
+  {
+    "id": "student", "emoji": "🎒", "title": "High-school student",
+    "who": "Class 11–12, studying for exams and school projects",
+    "mindset": "Use AI as a tutor, not an answer machine: ask it to explain, quiz you and check your reasoning.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "chatgpt", "kind": "App", "why": "Turn on Study mode so it walks you through problems step by step instead of handing you the answer." },
+        { "tool": "gemini-app", "kind": "App", "why": "Guided Learning breaks a topic into small steps and checks your understanding as you go." },
+        { "tool": "claude-app", "kind": "App", "why": "Ask it to explain a concept 'like I'm in class 11', then to quiz you with 5 questions." }
+      ]},
+      { "label": "Level up", "items": [
+        { "tool": "notebooklm", "kind": "App", "why": "Upload your notes and textbook chapters to get flashcards, quizzes and audio summaries based only on your material." },
+        { "tool": "perplexity", "kind": "App", "why": "For projects: answers with sources you can open, check and cite." },
+        { "name": "Khanmigo", "url": "https://www.khanmigo.ai/", "kind": "App", "why": "Khan Academy's AI tutor, designed for students and built not to just give answers away." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "claude-app", "kind": "App", "why": "Ask it to build a small interactive simulation of a physics or chemistry idea, then play with the variables." },
+        { "tool": "v0", "kind": "App", "why": "Turn a school project into a real website by describing it." }
+      ]}
+    ],
+    "watchOut": "Copy-pasting AI answers into homework skips the learning and is easy for teachers to spot. Never trust a fact, formula or citation until you've checked it.",
+    "concepts": ["llm", "prompting", "safety"]
+  },
+  {
+    "id": "frontend", "emoji": "🖥️", "title": "Frontend developer",
+    "who": "Building web UIs with React, Vue, Svelte or plain HTML/CSS",
+    "mindset": "Let agents produce the first 80% of the UI, and spend your time on taste, accessibility and edge cases.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "claude-code", "kind": "Agent", "why": "Works across your whole repo: builds components, wires state and runs your tests." },
+        { "tool": "cursor", "kind": "Editor", "why": "If you prefer staying in an editor: inline completion plus an agent panel." },
+        { "tool": "context7", "kind": "MCP", "why": "Feeds current docs for your exact framework version, so you get fewer outdated APIs." },
+        { "tool": "anthropic-skills", "kind": "Skill", "why": "The frontend-design skill steers the agent away from the generic AI look toward a deliberate design." }
+      ]},
+      { "label": "Level up", "items": [
+        { "tool": "figma-mcp", "kind": "MCP", "why": "The agent reads real frames, variables and components instead of guessing from a screenshot." },
+        { "tool": "shadcn-ui", "kind": "Components", "why": "Components that models generate well, and the code lives in your repo." },
+        { "tool": "chrome-devtools-mcp", "kind": "MCP", "why": "The agent can inspect DOM, console, network and performance to fix what it built." },
+        { "tool": "responsively", "kind": "Companion", "why": "Check every breakpoint at once before you ship AI-generated layouts." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "dembrandt", "kind": "MCP", "why": "Pull an existing brand's tokens into Tailwind or shadcn so new pages match it exactly." },
+        { "tool": "dembrandt-skills", "kind": "Skill", "why": "Brings WCAG, button-state and type-scale rules into every change the agent makes." },
+        { "tool": "genjutsu", "kind": "Skill", "why": "Deliberate motion and micro-interactions, with a plan you approve before code." },
+        { "tool": "playwright-mcp", "kind": "MCP", "why": "Have the agent write and run end-to-end tests against the real browser." }
+      ]}
+    ],
+    "watchOut": "AI-generated UI often misses focus states, keyboard navigation and contrast. Review accessibility yourself, or with a skill, before merging.",
+    "concepts": ["codingagents", "mcp", "skills"]
+  },
+  {
+    "id": "ux", "emoji": "🎨", "title": "UX / UI designer",
+    "who": "Research, flows, visual design and design systems",
+    "mindset": "Use AI to explore more directions and test ideas faster. Judgment, research and taste stay your job.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "stitch", "kind": "App", "why": "Generate several UI directions from a prompt or sketch, then export to Figma." },
+        { "tool": "notebooklm", "kind": "App", "why": "Synthesize interview transcripts with citations back to what users actually said." },
+        { "tool": "claude-app", "kind": "App", "why": "Draft personas, journey maps and UX copy variants to react to." }
+      ]},
+      { "label": "Level up", "items": [
+        { "tool": "v0", "kind": "App", "why": "Turn a flow into a clickable prototype you can test with real users today." },
+        { "tool": "figma-mcp", "kind": "MCP", "why": "Hand off designs that coding agents implement faithfully, down to variables and components." },
+        { "tool": "dembrandt", "kind": "Tool", "why": "Audit a competitor's or client's design system in seconds: colors, type and spacing." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "dembrandt-skills", "kind": "Skill", "why": "Run Nielsen-heuristic and WCAG 2.2 reviews with an agent that cites the rule it applies." },
+        { "tool": "claude-code", "kind": "Agent", "why": "Ship small production changes yourself, starting from your own Figma file." },
+        { "tool": "genjutsu", "kind": "Skill", "why": "Turn motion intentions into an approved interaction plan, then working code." }
+      ]}
+    ],
+    "watchOut": "Generated screens are not research. Don't paste confidential user data into tools your company hasn't approved.",
+    "concepts": ["multimodal", "mcp", "skills"]
+  },
+  {
+    "id": "aieng", "emoji": "⚙️", "title": "Backend / AI engineer",
+    "who": "Adding AI features to products and services",
+    "mindset": "Start with the simplest thing: one prompt plus evals. Add RAG, tools and agents only when the evals show you need them.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "openrouter", "kind": "API", "why": "Try several models behind one key before you commit to a provider." },
+        { "tool": "instructor", "kind": "Library", "why": "Validated, typed output from day one, with no brittle string parsing." },
+        { "tool": "langfuse", "kind": "Platform", "why": "Trace every call, its cost and latency from the first prototype." }
+      ]},
+      { "label": "Level up", "items": [
+        { "tool": "promptfoo", "kind": "CLI", "why": "Prompt and model regression tests in CI." },
+        { "tool": "llamaindex", "kind": "Framework", "why": "RAG over your data once prompting alone isn't enough." },
+        { "tool": "pgvector", "kind": "Database", "why": "Vector search in the Postgres you already run." },
+        { "tool": "fastmcp", "kind": "MCP", "why": "Expose your service to every AI client as an MCP server." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "langgraph", "kind": "Framework", "why": "Durable, controllable agents with human approval steps." },
+        { "tool": "e2b", "kind": "Infra", "why": "Run code your agent writes in an isolated sandbox." },
+        { "tool": "litellm", "kind": "Gateway", "why": "One gateway with budgets, keys and fallbacks across providers." },
+        { "tool": "garak", "kind": "Security", "why": "Scan for prompt injection and jailbreaks before launch." }
+      ]}
+    ],
+    "watchOut": "Without evals you can't tell whether a change helped. Treat all retrieved content and tool output as untrusted input.",
+    "concepts": ["toolcalling", "rag", "evals", "agents"]
+  },
+  {
+    "id": "biotech", "emoji": "🧬", "title": "Biotech / life-science researcher",
+    "who": "Wet lab, computational biology or drug discovery",
+    "mindset": "General assistants for reading and writing, domain models for structures, coding agents for analysis. Verify everything against primary data.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "elicit", "kind": "App", "why": "Literature reviews that search papers and extract methods, results and sample sizes into a table." },
+        { "tool": "notebooklm", "kind": "App", "why": "Ask questions across the papers you upload, with citations to the exact passage." },
+        { "tool": "alphafold-server", "kind": "App", "why": "Predict protein and complex structures in a browser, free for non-commercial research." }
+      ]},
+      { "label": "Level up", "items": [
+        { "name": "Claude for Life Sciences", "url": "https://www.anthropic.com/news/claude-for-life-sciences", "kind": "Plugin", "why": "Connectors to research tools such as Benchling and PubMed, plus skills for common scientific workflows." },
+        { "tool": "jupyter", "kind": "Tool", "why": "Keep analysis reproducible: code, data and figures in one notebook." },
+        { "tool": "claude-code", "kind": "Agent", "why": "Have an agent write and run your analysis scripts and notebooks, so you review code, not copy-pasted numbers." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "boltz", "kind": "Model", "why": "Open structure and binding-affinity models you can run in-house and use commercially." },
+        { "tool": "modal", "kind": "Infra", "why": "Run Boltz or other models on serverless GPUs without managing a cluster." },
+        { "tool": "mcp-spec", "kind": "MCP", "why": "Connect your lab's databases or ELN to agents through a custom MCP server." }
+      ]}
+    ],
+    "watchOut": "Never paste unpublished or patient data into consumer chat apps. Treat AI summaries of papers as leads, not facts, and check the figure or table yourself.",
+    "concepts": ["llm", "rag", "mcp", "safety"]
+  },
+  {
+    "id": "professional", "emoji": "💼", "title": "Non-technical professional",
+    "who": "Product, marketing, operations, HR or finance",
+    "mindset": "Automate the repetitive parts of your week, and keep people on the decisions.",
+    "levels": [
+      { "label": "Start today", "items": [
+        { "tool": "claude-app", "kind": "App", "why": "Draft documents, analyze spreadsheets and summarize long threads." },
+        { "tool": "chatgpt", "kind": "App", "why": "Brainstorm, rewrite and use voice mode for thinking out loud." },
+        { "tool": "perplexity", "kind": "App", "why": "Quick market and competitor research with sources." }
+      ]},
+      { "label": "Level up", "items": [
+        { "tool": "notebooklm", "kind": "App", "why": "Turn policy docs and reports into a Q&A notebook for your team." },
+        { "tool": "anthropic-skills", "kind": "Skill", "why": "The docx, xlsx and pptx skills produce real, formatted Office files, not just text." },
+        { "tool": "n8n", "kind": "Automation", "why": "Connect AI to Gmail, Slack and Sheets to automate recurring workflows." }
+      ]},
+      { "label": "Power user", "items": [
+        { "tool": "dify", "kind": "Platform", "why": "Build an internal chatbot over your team's documents, with no code." },
+        { "tool": "lovable", "kind": "App", "why": "Prototype the internal tool you've always wanted, by describing it." }
+      ]}
+    ],
+    "watchOut": "Don't automate decisions that affect people without review. Don't connect AI to accounts with more access than the task needs.",
+    "concepts": ["llm", "prompting", "agents", "safety"]
+  }
+]

@@ -1,0 +1,19 @@
+name: Suggest a tool
+description: Propose an AI tool, framework or MCP server for the atlas
+labels: [new-tool]
+body:
+  - type: input
+    id: name
+    attributes: { label: Name }
+    validations: { required: true }
+  - type: input
+    id: url
+    attributes: { label: Website or docs URL }
+    validations: { required: true }
+  - type: input
+    id: repo
+    attributes: { label: GitHub repo (owner/name), placeholder: "ollama/ollama" }
+  - type: textarea
+    id: why
+    attributes: { label: What does it do, and what would someone search for to find it? }
+    validations: { required: true }

@@ -1,0 +1,213 @@
+{
+  "phases": [
+    { "id": "foundations", "title": "Foundations", "subtitle": "How machines learned to learn", "era": "1956 – 2017" },
+    { "id": "llms", "title": "Large Language Models", "subtitle": "Prediction at internet scale", "era": "2018 – 2024" },
+    { "id": "using", "title": "Using Models Well", "subtitle": "Getting reliable results", "era": "2023 →" },
+    { "id": "agents", "title": "Agents, MCP & Skills", "subtitle": "From answering to doing", "era": "2024 →" },
+    { "id": "responsible", "title": "Using It Responsibly", "subtitle": "Know the limits", "era": "always" }
+  ],
+  "nodes": [
+    {
+      "id": "ai", "phase": "foundations", "title": "Artificial Intelligence", "era": "1956 →",
+      "what": "The broad goal of making computers do things that normally need human intelligence. Early AI was hand-written rules: if X, then Y.",
+      "fits": "Everything on this map is a branch of AI. The big shift was from rules people write to patterns machines learn.",
+      "analogy": "Rule-based AI is a recipe book. Learning-based AI is a cook who learned by tasting thousands of dishes.",
+      "try": "List three AI systems you used today without noticing, such as a spam filter, recommendations or map routing.",
+      "tools": [],
+      "resource": { "title": "Elements of AI: free beginner course", "url": "https://www.elementsofai.com/" },
+      "next": ["ml"]
+    },
+    {
+      "id": "ml", "phase": "foundations", "title": "Machine Learning", "era": "1990s →",
+      "what": "Instead of writing rules, you show the computer many labelled examples, such as emails marked spam or not spam, and it learns the pattern.",
+      "fits": "Classic ML (decision trees, regression) still powers most business predictions. Its limit is that people must choose which features matter.",
+      "analogy": "Like learning to spot ripe fruit from hundreds of examples instead of memorizing a checklist.",
+      "try": "Do the first module of Google's free Machine Learning Crash Course.",
+      "tools": ["jupyter"],
+      "resource": { "title": "Google Machine Learning Crash Course", "url": "https://developers.google.com/machine-learning/crash-course" },
+      "next": ["dl"]
+    },
+    {
+      "id": "dl", "phase": "foundations", "title": "Neural Networks & Deep Learning", "era": "2012 →",
+      "what": "Networks with many layers of simple artificial neurons that learn useful features by themselves from raw data like pixels, sound or text.",
+      "fits": "It took off once big datasets and GPUs arrived. In 2012 AlexNet won a major image-recognition contest by a wide margin and started the deep learning era. Every modern AI model is a deep network.",
+      "analogy": "Early layers notice edges, middle layers notice shapes, later layers notice faces. Nobody tells it to; it learns that structure.",
+      "try": "Watch the first 3Blue1Brown video on neural networks (about 20 minutes).",
+      "tools": ["pytorch"],
+      "resource": { "title": "3Blue1Brown: Neural networks (visual series)", "url": "https://www.3blue1brown.com/topics/neural-networks" },
+      "next": ["transformer"]
+    },
+    {
+      "id": "transformer", "phase": "foundations", "title": "Transformers & Attention", "era": "2017",
+      "what": "A network design where every word can attend to every other word to understand context, and that trains efficiently in parallel.",
+      "fits": "The architecture behind every LLM; it's the T in GPT. It made training on internet-scale text practical.",
+      "analogy": "Reading a sentence while keeping every other word in view, instead of one word at a time.",
+      "try": "Skim the diagrams in The Illustrated Transformer. You don't need the math to get the idea.",
+      "tools": ["transformers"],
+      "resource": { "title": "Jay Alammar: The Illustrated Transformer", "url": "https://jalammar.github.io/illustrated-transformer/" },
+      "next": ["llm"]
+    },
+    {
+      "id": "llm", "phase": "llms", "title": "Large Language Models", "era": "2020 →",
+      "what": "Huge transformers trained to predict the next word across a large part of the internet. At enough scale, that single skill becomes writing, reasoning, translating and coding.",
+      "fits": "GPT-3 (2020) showed what scale can do. ChatGPT (Nov 2022) turned it into a product anyone could use. Everything after this on the map builds on LLMs.",
+      "analogy": "A world-class autocomplete that has read more than any human could, and so picked up a lot of how the world works.",
+      "try": "Ask an assistant the same question three ways and compare the answers. Notice how the wording changes the result.",
+      "tools": ["chatgpt", "claude-app", "gemini-app"],
+      "resource": { "title": "Andrej Karpathy: Intro to Large Language Models (1h)", "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g" },
+      "next": ["tokens", "training"]
+    },
+    {
+      "id": "tokens", "phase": "llms", "title": "Tokens, Context & Embeddings", "era": "core idea",
+      "what": "Models read text as tokens (word pieces). The context window is how many tokens they can see at once. Embeddings turn text into lists of numbers where similar meanings land close together.",
+      "fits": "Tokens explain pricing and length limits. Embeddings power semantic search and RAG later on the map.",
+      "analogy": "Embeddings are coordinates on a map of meaning: 'puppy' sits near 'dog' and far from 'invoice'.",
+      "try": "Paste a paragraph into a tokenizer tool and count the tokens. Notice how rare words split into pieces.",
+      "tools": ["sentence-transformers"],
+      "resource": { "title": "Jay Alammar: The Illustrated Word2vec", "url": "https://jalammar.github.io/illustrated-word2vec/" },
+      "next": ["rag"]
+    },
+    {
+      "id": "training", "phase": "llms", "title": "Pretraining → Fine-tuning → RLHF", "era": "core idea",
+      "what": "Pretraining teaches language from raw text. Fine-tuning teaches a task or format. RLHF (learning from human preference ratings) teaches the model to be helpful and safe.",
+      "fits": "This is why a raw model rambles but a chat model answers. You can fine-tune open models yourself, but try prompting first.",
+      "analogy": "Pretraining is reading the whole library, fine-tuning is job training, and RLHF is feedback from customers.",
+      "try": "Open a free Unsloth Colab notebook and look at what a fine-tuning dataset looks like.",
+      "tools": ["unsloth", "trl"],
+      "resource": { "title": "Hugging Face: Illustrating RLHF", "url": "https://huggingface.co/blog/rlhf" },
+      "next": ["open"]
+    },
+    {
+      "id": "open", "phase": "llms", "title": "Open vs Closed Models", "era": "2023 →",
+      "what": "Closed models (Claude, GPT, Gemini) run behind an API. Open-weight models (Llama, Qwen, Mistral, DeepSeek and others) can be downloaded and run on your own hardware.",
+      "fits": "Closed models are usually the most capable. Open models give you privacy, control and no per-token cost.",
+      "try": "Install Ollama and chat with a small model completely offline.",
+      "tools": ["ollama", "hf-hub", "openrouter"],
+      "resource": { "title": "Hugging Face LLM Course (free)", "url": "https://huggingface.co/learn/llm-course" },
+      "next": ["multimodal"]
+    },
+    {
+      "id": "multimodal", "phase": "llms", "title": "Multimodal Models", "era": "2023 →",
+      "what": "Models that take in and produce more than text: images, audio and video.",
+      "fits": "Makes screenshot understanding, voice assistants and image generation possible, and it's how agents can see screens.",
+      "try": "Upload a photo of a chart or handwritten note to an assistant and ask it to explain it.",
+      "tools": ["gemini-api", "comfyui", "elevenlabs"],
+      "next": ["reasoning"]
+    },
+    {
+      "id": "reasoning", "phase": "llms", "title": "Reasoning Models", "era": "2024 →",
+      "what": "Models trained to think step by step before answering, spending more compute on harder problems.",
+      "fits": "Brought big jumps in math, coding and planning, and they're the backbone of capable agents. OpenAI's o1 (Sept 2024) started the wave; now most frontier models can reason.",
+      "try": "Give a tricky logic puzzle to a model with extended thinking on and off, and compare the answers.",
+      "tools": ["anthropic-api", "openai-api"],
+      "resource": { "title": "OpenAI: Learning to reason with LLMs", "url": "https://openai.com/index/learning-to-reason-with-llms/" },
+      "next": ["prompting"]
+    },
+    {
+      "id": "prompting", "phase": "using", "title": "Prompting & Context Engineering", "era": "2023 →",
+      "what": "Getting good results with clear instructions, examples and the right information. Context engineering is the broader skill of choosing everything the model sees.",
+      "fits": "The cheapest, fastest lever. Try it before reaching for RAG, fine-tuning or agents.",
+      "try": "Rewrite a vague prompt with a role, the goal, an example of good output and the format you want. Compare the results.",
+      "tools": ["dspy", "baml"],
+      "resource": { "title": "Anthropic: Prompt engineering guide", "url": "https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview" },
+      "next": ["toolcalling"]
+    },
+    {
+      "id": "toolcalling", "phase": "using", "title": "Tool Calling & Structured Output", "era": "2023",
+      "what": "The model replies with a structured request like get_weather(city=\"Paris\"), your code runs it, and the result goes back to the model. Structured output guarantees JSON you can parse.",
+      "fits": "The bridge from talking to doing. Agents and MCP are built on it.",
+      "analogy": "The model can't use a calculator itself, but it can ask you to press the buttons and tell it the answer.",
+      "try": "Follow the tool-use quickstart and give a model one function, such as current time.",
+      "tools": ["instructor", "outlines"],
+      "resource": { "title": "Claude docs: Tool use overview", "url": "https://docs.claude.com/en/docs/build-with-claude/tool-use/overview" },
+      "next": ["rag", "agents"]
+    },
+    {
+      "id": "rag", "phase": "using", "title": "RAG (Retrieval-Augmented Generation)", "era": "2023 →",
+      "what": "Find the relevant pieces of your documents, using embeddings and a vector database, and put them in the prompt so the model answers from your data.",
+      "fits": "How chatbots answer questions about company docs without retraining. Often the first real AI app a team builds.",
+      "analogy": "An open-book exam: the model doesn't memorize your docs, it looks up the right page first.",
+      "try": "Upload three PDFs to NotebookLM and ask a question that needs two of them. That's RAG with no code.",
+      "tools": ["docling", "llamaindex", "pgvector", "notebooklm"],
+      "stack": "rag",
+      "next": ["evals"]
+    },
+    {
+      "id": "evals", "phase": "using", "title": "Evals", "era": "2023 →",
+      "what": "Tests for AI behavior: sets of inputs with checks on the outputs, run on every change.",
+      "fits": "LLMs are unpredictable, so evals are how you know a change made things better, not worse. Teams that win at AI are usually the ones with good evals.",
+      "try": "Write 10 real questions with good answers for your use case. That's your first eval set.",
+      "tools": ["promptfoo", "langfuse", "ragas"],
+      "resource": { "title": "Hamel Husain: Your AI product needs evals", "url": "https://hamel.dev/blog/posts/evals/" },
+      "stack": "eval",
+      "next": ["agents"]
+    },
+    {
+      "id": "agents", "phase": "agents", "title": "AI Agents", "era": "2024 →",
+      "what": "An LLM in a loop: it decides which tool to use, looks at the result, and repeats until the task is done.",
+      "fits": "Combines reasoning, tool calling and context. Start with simple fixed workflows and reach for full autonomy only when you need it.",
+      "analogy": "A chatbot answers your question. An agent takes the errand and comes back when it's done.",
+      "try": "Read 'Building effective agents' and sort what you do at work into workflow steps or agent tasks.",
+      "tools": ["claude-agent-sdk", "langgraph", "openai-agents"],
+      "resource": { "title": "Anthropic: Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents" },
+      "stack": "agent",
+      "next": ["mcp"]
+    },
+    {
+      "id": "mcp", "phase": "agents", "title": "MCP (Model Context Protocol)", "era": "Nov 2024 →",
+      "what": "An open standard for plugging tools and data into any AI app: build a connector once and use it in Claude, ChatGPT, Cursor and more.",
+      "fits": "It's how agents reach GitHub, Figma, databases and browsers. MCP answers 'what can the agent touch?'",
+      "analogy": "USB-C for AI: one plug shape, so any device works with any port.",
+      "try": "Add the Playwright MCP server to your AI app and ask it to open a website and summarize it.",
+      "tools": ["mcp-spec", "fastmcp", "figma-mcp", "github-mcp"],
+      "resource": { "title": "Anthropic: Introducing the Model Context Protocol", "url": "https://www.anthropic.com/news/model-context-protocol" },
+      "stack": "mcp",
+      "next": ["codingagents"]
+    },
+    {
+      "id": "codingagents", "phase": "agents", "title": "Coding Agents", "era": "2025 →",
+      "what": "Agents that read a codebase, edit files, run commands and tests, and keep iterating, from your terminal or IDE.",
+      "fits": "The most mature kind of agent so far, and where skills and plugins took off. Useful for non-coders too, for file and data chores.",
+      "try": "Ask a coding agent to explain an unfamiliar repo, then make one small change and run the tests.",
+      "tools": ["claude-code", "cursor", "codex-cli"],
+      "stack": "coding",
+      "next": ["skills"]
+    },
+    {
+      "id": "skills", "phase": "agents", "title": "Skills & Plugins", "era": "Oct 2025 →",
+      "what": "A skill is a folder of instructions (SKILL.md) plus optional scripts that an agent loads only when a task needs it. A plugin bundles skills, MCP servers, commands and hooks into one install.",
+      "fits": "MCP gives agents tools; skills give them know-how. Skills are now an open format used across many agents.",
+      "analogy": "MCP hands the agent a toolbox. A skill hands it the expert's playbook for using it.",
+      "try": "Install Anthropic's frontend-design or docx skill and ask for a landing page or a formatted report.",
+      "tools": ["anthropic-skills", "skills-cli", "dembrandt-skills"],
+      "resource": { "title": "Anthropic: Equipping agents with Agent Skills", "url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills" },
+      "next": ["multiagent"]
+    },
+    {
+      "id": "multiagent", "phase": "agents", "title": "Subagents & Multi-agent", "era": "2025 →",
+      "what": "A lead agent hands parts of a job to subagents. Each gets a fresh context, and they can work in parallel.",
+      "fits": "How agents handle big jobs like deep research or large refactors without overflowing their context.",
+      "tools": ["langgraph", "claude-agent-sdk"],
+      "resource": { "title": "Anthropic: Effective context engineering for agents", "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents" },
+      "next": ["computeruse"]
+    },
+    {
+      "id": "computeruse", "phase": "agents", "title": "Computer & Browser Use", "era": "Oct 2024 →",
+      "what": "Agents that operate screens and browsers like a person: look, click, type.",
+      "fits": "Reaches apps that have no API. Slower and less reliable than APIs or MCP, so use it as the fallback.",
+      "tools": ["browser-use", "playwright-mcp", "stagehand"],
+      "resource": { "title": "Anthropic: Introducing computer use", "url": "https://www.anthropic.com/news/3-5-models-and-computer-use" },
+      "stack": "web",
+      "next": ["safety"]
+    },
+    {
+      "id": "safety", "phase": "responsible", "title": "Limits, Safety & Security", "era": "always",
+      "what": "Models hallucinate, can be tricked by prompt injection hidden in content they read, and agents can take real actions.",
+      "fits": "The more autonomy you give AI, the more guardrails, sandboxes and human review you need.",
+      "try": "Ask an assistant for sources on a niche topic and check whether every citation actually exists.",
+      "tools": ["garak", "llama-guard", "e2b"],
+      "resource": { "title": "Simon Willison: Prompt injection series", "url": "https://simonwillison.net/series/prompt-injection/" },
+      "next": []
+    }
+  ]
+}

@@ -1,0 +1,653 @@
+{
+  "_comment": "Everyday words people type -> terms that appear in the data. Expansions rank below direct matches. Add a line whenever a reasonable search returns nothing useful.",
+  "website": [
+    "web",
+    "frontend",
+    "ui",
+    "landing page"
+  ],
+  "site": [
+    "website",
+    "web"
+  ],
+  "webpage": [
+    "website",
+    "web",
+    "frontend"
+  ],
+  "webapp": [
+    "web app",
+    "full-stack",
+    "frontend"
+  ],
+  "design": [
+    "ui",
+    "figma",
+    "mockup",
+    "design-to-code"
+  ],
+  "designer": [
+    "design",
+    "figma",
+    "ui"
+  ],
+  "ui": [
+    "frontend",
+    "components",
+    "design"
+  ],
+  "ux": [
+    "ui",
+    "design"
+  ],
+  "frontend": [
+    "ui",
+    "react",
+    "website",
+    "css"
+  ],
+  "css": [
+    "frontend",
+    "tailwind",
+    "layout"
+  ],
+  "figma": [
+    "design-to-code",
+    "design"
+  ],
+  "landing": [
+    "website",
+    "landing page"
+  ],
+  "mockup": [
+    "design",
+    "ui",
+    "prototype"
+  ],
+  "prototype": [
+    "mockup",
+    "mvp",
+    "prototype ui"
+  ],
+  "pdf": [
+    "parsing",
+    "documents",
+    "tables"
+  ],
+  "doc": [
+    "documents",
+    "pdf",
+    "rag"
+  ],
+  "docs": [
+    "documents",
+    "pdf",
+    "rag"
+  ],
+  "document": [
+    "pdf",
+    "rag",
+    "parsing"
+  ],
+  "documents": [
+    "pdf",
+    "rag",
+    "parsing"
+  ],
+  "files": [
+    "documents",
+    "parsing",
+    "markdown"
+  ],
+  "word": [
+    "documents",
+    "markdown"
+  ],
+  "excel": [
+    "documents",
+    "markdown"
+  ],
+  "knowledge": [
+    "rag",
+    "knowledge base",
+    "documents"
+  ],
+  "chat": [
+    "chatbot",
+    "chat-ui",
+    "rag"
+  ],
+  "chatbot": [
+    "chat",
+    "assistant",
+    "rag"
+  ],
+  "chatgpt": [
+    "chat-ui",
+    "chatbot",
+    "openai"
+  ],
+  "qa": [
+    "rag",
+    "question answering"
+  ],
+  "vector": [
+    "embeddings",
+    "semantic search",
+    "vectordb"
+  ],
+  "embedding": [
+    "embeddings",
+    "vector"
+  ],
+  "semantic": [
+    "embeddings",
+    "vector",
+    "semantic search"
+  ],
+  "database": [
+    "vector",
+    "postgres",
+    "db"
+  ],
+  "db": [
+    "database",
+    "vector"
+  ],
+  "local": [
+    "offline",
+    "self-hosted",
+    "laptop"
+  ],
+  "offline": [
+    "local",
+    "private"
+  ],
+  "private": [
+    "local",
+    "self-hosted",
+    "offline"
+  ],
+  "laptop": [
+    "local",
+    "mac"
+  ],
+  "selfhosted": [
+    "self-hosted",
+    "local"
+  ],
+  "mac": [
+    "apple-silicon",
+    "mlx",
+    "macbook"
+  ],
+  "cpu": [
+    "local",
+    "gguf"
+  ],
+  "gpu": [
+    "serving",
+    "cuda",
+    "serverless gpu"
+  ],
+  "deploy": [
+    "serving",
+    "production",
+    "hosting"
+  ],
+  "serve": [
+    "serving",
+    "production",
+    "inference"
+  ],
+  "hosting": [
+    "serving",
+    "deploy",
+    "serverless"
+  ],
+  "production": [
+    "serving",
+    "monitoring",
+    "scale"
+  ],
+  "scrape": [
+    "scraping",
+    "crawling",
+    "extract"
+  ],
+  "scraper": [
+    "scraping",
+    "crawling"
+  ],
+  "crawl": [
+    "crawling",
+    "scraping"
+  ],
+  "browser": [
+    "browser-automation",
+    "playwright",
+    "web"
+  ],
+  "automate": [
+    "automation",
+    "workflows",
+    "browser-automation"
+  ],
+  "automation": [
+    "workflows",
+    "automate"
+  ],
+  "zapier": [
+    "automation",
+    "workflows",
+    "integrations"
+  ],
+  "workflow": [
+    "workflows",
+    "automation"
+  ],
+  "internet": [
+    "web",
+    "search-api"
+  ],
+  "google": [
+    "search-api",
+    "gemini"
+  ],
+  "test": [
+    "testing",
+    "evals",
+    "ci"
+  ],
+  "testing": [
+    "evals",
+    "ci"
+  ],
+  "eval": [
+    "evals",
+    "evaluate",
+    "metrics"
+  ],
+  "evaluate": [
+    "evals",
+    "metrics",
+    "testing"
+  ],
+  "quality": [
+    "evals",
+    "testing",
+    "metrics"
+  ],
+  "monitor": [
+    "monitoring",
+    "tracing",
+    "observability"
+  ],
+  "monitoring": [
+    "tracing",
+    "observability"
+  ],
+  "observability": [
+    "tracing",
+    "monitoring"
+  ],
+  "logging": [
+    "tracing",
+    "observability"
+  ],
+  "trace": [
+    "tracing",
+    "observability"
+  ],
+  "debug": [
+    "debugging",
+    "tracing"
+  ],
+  "hallucination": [
+    "evals",
+    "rag-evals",
+    "faithfulness"
+  ],
+  "cost": [
+    "cost tracking",
+    "gateway",
+    "cheap"
+  ],
+  "voice": [
+    "voice-agent",
+    "tts",
+    "stt",
+    "speech"
+  ],
+  "speech": [
+    "stt",
+    "tts",
+    "voice"
+  ],
+  "audio": [
+    "stt",
+    "tts",
+    "transcription",
+    "voice"
+  ],
+  "phone": [
+    "voice-agent",
+    "telephony",
+    "call"
+  ],
+  "call": [
+    "voice-agent",
+    "phone"
+  ],
+  "transcribe": [
+    "stt",
+    "transcription"
+  ],
+  "transcription": [
+    "stt"
+  ],
+  "tts": [
+    "text to speech"
+  ],
+  "stt": [
+    "speech to text",
+    "transcription"
+  ],
+  "image": [
+    "image-generation",
+    "diffusion",
+    "multimodal"
+  ],
+  "images": [
+    "image-generation",
+    "diffusion"
+  ],
+  "picture": [
+    "image-generation"
+  ],
+  "video": [
+    "video",
+    "multimodal",
+    "image-generation"
+  ],
+  "art": [
+    "image-generation",
+    "diffusion"
+  ],
+  "finetune": [
+    "fine-tuning",
+    "lora",
+    "training"
+  ],
+  "finetuning": [
+    "fine-tuning",
+    "lora",
+    "training"
+  ],
+  "train": [
+    "training",
+    "fine-tuning",
+    "lora"
+  ],
+  "training": [
+    "fine-tuning",
+    "lora"
+  ],
+  "customize": [
+    "fine-tuning",
+    "lora"
+  ],
+  "memory": [
+    "long-term-memory",
+    "remember"
+  ],
+  "remember": [
+    "memory",
+    "long-term-memory"
+  ],
+  "personalize": [
+    "personalization",
+    "memory"
+  ],
+  "agent": [
+    "agents",
+    "multi-agent",
+    "autonomous"
+  ],
+  "agents": [
+    "agent",
+    "multi-agent"
+  ],
+  "autonomous": [
+    "agent"
+  ],
+  "assistant": [
+    "agent",
+    "chatbot"
+  ],
+  "tool": [
+    "tools",
+    "mcp"
+  ],
+  "integration": [
+    "integrations",
+    "mcp",
+    "connector"
+  ],
+  "connector": [
+    "mcp",
+    "integrations"
+  ],
+  "plugin": [
+    "mcp",
+    "integrations"
+  ],
+  "api": [
+    "mcp",
+    "server",
+    "gateway"
+  ],
+  "code": [
+    "coding",
+    "ide",
+    "programming"
+  ],
+  "coding": [
+    "code",
+    "ide",
+    "editor"
+  ],
+  "programming": [
+    "coding",
+    "code"
+  ],
+  "developer": [
+    "coding",
+    "ide"
+  ],
+  "ide": [
+    "editor",
+    "vscode"
+  ],
+  "vscode": [
+    "ide",
+    "editor"
+  ],
+  "github": [
+    "git",
+    "pull requests"
+  ],
+  "refactor": [
+    "coding",
+    "codebase"
+  ],
+  "json": [
+    "structured-output",
+    "pydantic",
+    "schema"
+  ],
+  "structured": [
+    "structured-output",
+    "json"
+  ],
+  "extract": [
+    "structured data",
+    "json",
+    "parsing"
+  ],
+  "schema": [
+    "json",
+    "structured-output"
+  ],
+  "prompt": [
+    "prompts",
+    "prompt-optimization"
+  ],
+  "safety": [
+    "guardrails",
+    "moderation",
+    "security"
+  ],
+  "security": [
+    "red-teaming",
+    "prompt injection",
+    "scanner"
+  ],
+  "moderation": [
+    "classifier",
+    "guardrails"
+  ],
+  "jailbreak": [
+    "red-teaming",
+    "security"
+  ],
+  "injection": [
+    "prompt injection",
+    "security"
+  ],
+  "nocode": [
+    "no-code",
+    "visual",
+    "automation"
+  ],
+  "lowcode": [
+    "no-code",
+    "visual"
+  ],
+  "visual": [
+    "no-code",
+    "nodes"
+  ],
+  "free": [
+    "oss",
+    "free tier",
+    "open source"
+  ],
+  "cheap": [
+    "free",
+    "oss"
+  ],
+  "opensource": [
+    "oss",
+    "open source"
+  ],
+  "fast": [
+    "fast-inference",
+    "low latency",
+    "fast"
+  ],
+  "latency": [
+    "fast-inference",
+    "low latency"
+  ],
+  "search": [
+    "search-api",
+    "semantic search",
+    "vector"
+  ],
+  "py": [
+    "python"
+  ],
+  "js": [
+    "typescript",
+    "nodejs"
+  ],
+  "ts": [
+    "typescript"
+  ],
+  "node": [
+    "typescript",
+    "nodejs"
+  ],
+  "nextjs": [
+    "react",
+    "typescript"
+  ],
+  "react": [
+    "frontend",
+    "nextjs",
+    "ui"
+  ],
+  "skill": [
+    "skills",
+    "claude-code"
+  ],
+  "skills": [
+    "skill"
+  ],
+  "animation": [
+    "motion",
+    "gsap",
+    "micro interactions"
+  ],
+  "animate": [
+    "animation",
+    "motion"
+  ],
+  "motion": [
+    "animation",
+    "gsap"
+  ],
+  "brand": [
+    "design-tokens",
+    "design system",
+    "colors and fonts"
+  ],
+  "tokens": [
+    "design-tokens"
+  ],
+  "colors": [
+    "design-tokens",
+    "brand"
+  ],
+  "fonts": [
+    "design-tokens",
+    "typography"
+  ],
+  "screenshot": [
+    "screenshots",
+    "app-store"
+  ],
+  "screenshots": [
+    "app-store",
+    "marketing"
+  ],
+  "appstore": [
+    "app store",
+    "mobile"
+  ],
+  "ios": [
+    "app-store",
+    "mobile",
+    "swiftui"
+  ],
+  "android": [
+    "google play",
+    "mobile"
+  ],
+  "mobile": [
+    "app-store",
+    "ios",
+    "android"
+  ]
+}

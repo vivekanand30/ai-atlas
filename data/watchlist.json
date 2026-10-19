@@ -1,0 +1,26 @@
+[
+  {
+    "id": "awwwards-mcp",
+    "name": "Awwwards MCP",
+    "repo": "INSANE0777/Awwwards-mcp",
+    "url": "https://github.com/INSANE0777/Awwwards-mcp",
+    "category": "design",
+    "pitch": "MCP server for design inspiration from award-winning sites: search with real screenshots, extract design and motion DNA, and score your build against a reference.",
+    "holdingBack": "One month old with a single maintainer, and it depends on scraping awwwards.com, so a site change or a terms objection could break it.",
+    "promoteIf": "Stays maintained through early 2027 with more contributors and no terms issues.",
+    "added": "2026-10-19",
+    "revisit": "2027-01-15"
+  },
+  {
+    "id": "brag",
+    "name": "Brag",
+    "repo": "latent-spaces/brag",
+    "url": "https://latent-spaces.github.io/brag/",
+    "category": "skills",
+    "pitch": "Agent skill that turns the project you just built into a short launch video with music, motion and share copy.",
+    "holdingBack": "Became very popular within four months. The full mode depends on HeyGen's Hyperframes. We're waiting to see whether quality and maintenance last after the launch hype.",
+    "promoteIf": "Still actively maintained in 2027, with the slim mode (no Hyperframes) proving reliable.",
+    "added": "2026-10-19",
+    "revisit": "2027-01-15"
+  }
+]

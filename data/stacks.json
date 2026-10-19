@@ -1,0 +1,579 @@
+[
+  {
+    "id": "rag",
+    "emoji": "📚",
+    "title": "Chat with my documents",
+    "goal": "Answer questions over your PDFs, docs or knowledge base (RAG).",
+    "keywords": [
+      "rag",
+      "pdf",
+      "documents",
+      "knowledge base",
+      "chatbot",
+      "retrieval",
+      "search my docs"
+    ],
+    "steps": [
+      {
+        "label": "Parse files",
+        "why": "Turn PDFs and Office files into clean text with tables intact.",
+        "picks": [
+          "docling",
+          "markitdown"
+        ]
+      },
+      {
+        "label": "Embed",
+        "why": "Convert chunks into vectors.",
+        "picks": [
+          "sentence-transformers",
+          "openai-api",
+          "gemini-api"
+        ]
+      },
+      {
+        "label": "Store",
+        "why": "Keep vectors searchable. Already on Postgres? Use pgvector.",
+        "picks": [
+          "pgvector",
+          "qdrant",
+          "chroma",
+          "lancedb",
+          "pinecone"
+        ]
+      },
+      {
+        "label": "Retrieve + answer",
+        "why": "Wire retrieval to the model.",
+        "picks": [
+          "llamaindex",
+          "vercel-ai-sdk"
+        ]
+      },
+      {
+        "label": "Evaluate",
+        "why": "Measure faithfulness and relevance before shipping.",
+        "picks": [
+          "ragas",
+          "langfuse"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agent",
+    "emoji": "🤖",
+    "title": "Build an AI agent",
+    "goal": "An agent that plans, calls tools and finishes multi-step tasks.",
+    "keywords": [
+      "agent",
+      "autonomous",
+      "tool calling",
+      "multi-agent",
+      "assistant",
+      "workflow"
+    ],
+    "steps": [
+      {
+        "label": "Pick a framework",
+        "why": "Start simple. Use graphs when you need control and durability.",
+        "picks": [
+          "claude-agent-sdk",
+          "openai-agents",
+          "pydantic-ai",
+          "langgraph",
+          "mastra"
+        ]
+      },
+      {
+        "label": "Give it tools",
+        "why": "Expose tools over MCP so any agent can reuse them.",
+        "picks": [
+          "fastmcp",
+          "mcp-ts-sdk",
+          "github-mcp"
+        ]
+      },
+      {
+        "label": "Add memory",
+        "why": "Remember users and facts across sessions.",
+        "picks": [
+          "mem0",
+          "letta",
+          "graphiti"
+        ]
+      },
+      {
+        "label": "Run code safely",
+        "why": "Isolate any code the agent writes.",
+        "picks": [
+          "e2b",
+          "daytona"
+        ]
+      },
+      {
+        "label": "Trace & evaluate",
+        "why": "Agents fail in surprising ways. Trace every step.",
+        "picks": [
+          "langfuse",
+          "phoenix",
+          "inspect-ai"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mcp",
+    "emoji": "🔌",
+    "title": "Connect AI to my app (MCP)",
+    "goal": "Let Claude, ChatGPT, Cursor and others use your API or data.",
+    "keywords": [
+      "mcp",
+      "model context protocol",
+      "integration",
+      "connector",
+      "tools",
+      "server"
+    ],
+    "steps": [
+      {
+        "label": "Learn the spec",
+        "why": "Tools, resources, prompts and transports.",
+        "picks": [
+          "mcp-spec"
+        ]
+      },
+      {
+        "label": "Build a server",
+        "why": "Wrap your API as MCP tools.",
+        "picks": [
+          "fastmcp",
+          "mcp-ts-sdk"
+        ]
+      },
+      {
+        "label": "Debug it",
+        "why": "Call tools by hand before an LLM does.",
+        "picks": [
+          "mcp-inspector"
+        ]
+      },
+      {
+        "label": "Publish",
+        "why": "Make it discoverable.",
+        "picks": [
+          "mcp-registry"
+        ]
+      },
+      {
+        "label": "Or reuse one",
+        "why": "Someone may have built it already.",
+        "picks": [
+          "github-mcp",
+          "playwright-mcp",
+          "chrome-devtools-mcp",
+          "figma-mcp",
+          "context7"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "design",
+    "emoji": "🎨",
+    "title": "Design & build a website with AI",
+    "goal": "Go from idea or Figma file to a polished, working site.",
+    "keywords": [
+      "website",
+      "web design",
+      "ui",
+      "ux",
+      "figma",
+      "frontend",
+      "landing page",
+      "design",
+      "mockup",
+      "web app",
+      "animation",
+      "brand"
+    ],
+    "steps": [
+      {
+        "label": "Find a direction",
+        "why": "Generate options, or extract the brand from a site you already like.",
+        "picks": [
+          "stitch",
+          "v0",
+          "dembrandt"
+        ]
+      },
+      {
+        "label": "Design → code",
+        "why": "Let the agent read your real design, not a screenshot.",
+        "picks": [
+          "figma-mcp"
+        ]
+      },
+      {
+        "label": "Components",
+        "why": "A component kit AI models generate well.",
+        "picks": [
+          "shadcn-ui"
+        ]
+      },
+      {
+        "label": "Build it",
+        "why": "A coding agent assembles pages and logic.",
+        "picks": [
+          "claude-code",
+          "cursor",
+          "lovable"
+        ]
+      },
+      {
+        "label": "Add motion",
+        "why": "Deliberate animation and micro-interactions, planned before coded.",
+        "picks": [
+          "genjutsu"
+        ]
+      },
+      {
+        "label": "See & fix it",
+        "why": "Agent inspects the live page, console and performance.",
+        "picks": [
+          "chrome-devtools-mcp",
+          "playwright-mcp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "local",
+    "emoji": "🏠",
+    "title": "Run LLMs on my own machine",
+    "goal": "Private, offline, free inference on a laptop or your own GPU.",
+    "keywords": [
+      "local",
+      "offline",
+      "private",
+      "self-hosted",
+      "laptop",
+      "gpu",
+      "open source model"
+    ],
+    "steps": [
+      {
+        "label": "Get a runtime",
+        "why": "Ollama is easiest; LM Studio if you want a GUI; MLX on Macs.",
+        "picks": [
+          "ollama",
+          "lm-studio",
+          "llama-cpp",
+          "mlx"
+        ]
+      },
+      {
+        "label": "Add a chat UI",
+        "why": "A ChatGPT-like interface over your local models.",
+        "picks": [
+          "open-webui"
+        ]
+      },
+      {
+        "label": "Find models",
+        "why": "Download open weights.",
+        "picks": [
+          "hf-hub"
+        ]
+      },
+      {
+        "label": "Serve at scale",
+        "why": "Many users on real GPUs.",
+        "picks": [
+          "vllm",
+          "sglang"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coding",
+    "emoji": "💻",
+    "title": "Code faster with AI",
+    "goal": "Pick a coding agent or AI editor.",
+    "keywords": [
+      "coding",
+      "code",
+      "ide",
+      "editor",
+      "programming",
+      "developer",
+      "copilot"
+    ],
+    "steps": [
+      {
+        "label": "Terminal agent",
+        "why": "Delegates whole tasks across a codebase.",
+        "picks": [
+          "claude-code",
+          "codex-cli",
+          "gemini-cli",
+          "aider"
+        ]
+      },
+      {
+        "label": "AI editor / IDE",
+        "why": "Inline completion plus an agent panel.",
+        "picks": [
+          "cursor",
+          "copilot",
+          "zed"
+        ]
+      },
+      {
+        "label": "Open-source + your own key",
+        "why": "Choose any model, pay per token.",
+        "picks": [
+          "cline",
+          "aider"
+        ]
+      },
+      {
+        "label": "Better context",
+        "why": "Current docs and repo access for the agent.",
+        "picks": [
+          "context7",
+          "github-mcp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eval",
+    "emoji": "📊",
+    "title": "Test & monitor my LLM app",
+    "goal": "Catch regressions before users do and see what happens in production.",
+    "keywords": [
+      "evaluation",
+      "evals",
+      "testing",
+      "monitoring",
+      "observability",
+      "tracing",
+      "quality",
+      "production"
+    ],
+    "steps": [
+      {
+        "label": "Offline evals in CI",
+        "why": "Assert on outputs the same way you test code.",
+        "picks": [
+          "promptfoo",
+          "inspect-ai",
+          "ragas"
+        ]
+      },
+      {
+        "label": "Tracing",
+        "why": "See every prompt, tool call, cost and latency.",
+        "picks": [
+          "langfuse",
+          "phoenix",
+          "langsmith",
+          "braintrust"
+        ]
+      },
+      {
+        "label": "Guardrails",
+        "why": "Block bad inputs and outputs at runtime.",
+        "picks": [
+          "llama-guard",
+          "nemo-guardrails"
+        ]
+      },
+      {
+        "label": "Red-team",
+        "why": "Probe for jailbreaks and data leaks.",
+        "picks": [
+          "garak",
+          "promptfoo"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "voice",
+    "emoji": "🎙️",
+    "title": "Build a voice agent",
+    "goal": "Realtime phone or web voice assistant.",
+    "keywords": [
+      "voice",
+      "speech",
+      "phone",
+      "call",
+      "realtime",
+      "audio",
+      "tts",
+      "stt"
+    ],
+    "steps": [
+      {
+        "label": "Orchestrate",
+        "why": "Handles turn-taking, interruptions and transport.",
+        "picks": [
+          "livekit-agents",
+          "pipecat"
+        ]
+      },
+      {
+        "label": "Speech to text",
+        "why": "Transcribe the user.",
+        "picks": [
+          "faster-whisper",
+          "openai-api"
+        ]
+      },
+      {
+        "label": "Think fast",
+        "why": "Latency matters most in voice.",
+        "picks": [
+          "groq",
+          "openai-api",
+          "gemini-api"
+        ]
+      },
+      {
+        "label": "Text to speech",
+        "why": "Speak the answer.",
+        "picks": [
+          "elevenlabs",
+          "kokoro"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "web",
+    "emoji": "🌐",
+    "title": "Let AI read & use the web",
+    "goal": "Scrape, search or automate websites for an LLM.",
+    "keywords": [
+      "scrape",
+      "crawl",
+      "web",
+      "browser",
+      "search",
+      "automation",
+      "website"
+    ],
+    "steps": [
+      {
+        "label": "Read pages",
+        "why": "Get clean Markdown instead of HTML soup.",
+        "picks": [
+          "firecrawl",
+          "crawl4ai"
+        ]
+      },
+      {
+        "label": "Search",
+        "why": "Fresh results for agents.",
+        "picks": [
+          "tavily",
+          "exa"
+        ]
+      },
+      {
+        "label": "Click & type",
+        "why": "Act on sites that need interaction.",
+        "picks": [
+          "browser-use",
+          "stagehand",
+          "playwright-mcp"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "finetune",
+    "emoji": "🎯",
+    "title": "Fine-tune an open model",
+    "goal": "Teach an open model your style, format or domain.",
+    "keywords": [
+      "fine-tune",
+      "finetune",
+      "train",
+      "lora",
+      "custom model",
+      "rlhf",
+      "dpo"
+    ],
+    "steps": [
+      {
+        "label": "Pick a base model",
+        "why": "Start small; fine-tuning rarely needs the largest model.",
+        "picks": [
+          "hf-hub"
+        ]
+      },
+      {
+        "label": "Train",
+        "why": "Unsloth for one GPU, Axolotl for configs, TRL for RL.",
+        "picks": [
+          "unsloth",
+          "axolotl",
+          "trl",
+          "mlx"
+        ]
+      },
+      {
+        "label": "Track runs",
+        "why": "Compare loss curves and checkpoints.",
+        "picks": [
+          "wandb"
+        ]
+      },
+      {
+        "label": "Serve it",
+        "why": "Run your new weights.",
+        "picks": [
+          "vllm",
+          "ollama"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nocode",
+    "emoji": "🧰",
+    "title": "Automate work with AI, no code",
+    "goal": "Connect AI to the apps you use, or build internal AI apps visually.",
+    "keywords": [
+      "no-code",
+      "low-code",
+      "automation",
+      "automate",
+      "zapier",
+      "visual",
+      "drag and drop",
+      "workflow"
+    ],
+    "steps": [
+      {
+        "label": "Automate workflows",
+        "why": "Connect AI to Gmail, Slack, Sheets and more.",
+        "picks": [
+          "n8n"
+        ]
+      },
+      {
+        "label": "Internal AI apps",
+        "why": "Chatbots and RAG apps with a UI and API.",
+        "picks": [
+          "dify",
+          "langflow"
+        ]
+      }
+    ]
+  }
+]

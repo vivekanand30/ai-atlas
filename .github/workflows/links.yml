@@ -1,0 +1,21 @@
+name: Weekly link check
+on:
+  schedule: [{ cron: "0 6 * * 1" }]
+  workflow_dispatch:
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --exclude img.shields.io --accept 200,403,429 README.md docs/*.md
+          fail: false
+      - name: Open an issue for dead links
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Dead links found
+          content-filepath: ./lychee/out.md
+          labels: maintenance
