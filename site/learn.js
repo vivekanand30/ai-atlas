@@ -31,7 +31,7 @@
     $("#roadmap").innerHTML = roadmap.phases.map((p, pi) => {
       const items = nodes.filter((n) => n.phase === p.id);
       return `<section class="phase" id="phase-${p.id}">
-        <header class="phase-head"><span class="phase-num">Phase ${pi + 1}</span><h2>${esc(p.title)}</h2><p>${esc(p.subtitle)} · <span class="muted">${esc(p.era)}</span></p></header>
+        <header class="phase-head"><span class="phase-num">Phase ${pi + 1}</span><h2>${esc(p.title)}</h2><p>${esc(p.subtitle)}, <span class="muted">${esc(p.era)}</span></p></header>
         <ol class="nodes">${items.map((n) => `<li class="node-row">
           <button class="node${done.has(n.id) ? " is-done" : ""}" data-node="${n.id}">
             <span class="node-num">${done.has(n.id) ? "✓" : order[n.id]}</span>
@@ -55,23 +55,23 @@
     const nav = (ids, label) => ids.length ? `<div class="d-nav"><span>${label}</span>${ids.map((x) => `<button class="chip" data-node="${x}">${esc(nodeById[x].title)}</button>`).join("")}</div>` : "";
     $("#drawer").innerHTML = `
       <div class="d-head">
-        <div><div class="kicker">Stop ${order[id]} of ${nodes.length}${n.era ? ` · ${esc(n.era)}` : ""}</div><h2>${esc(n.title)}</h2></div>
+        <div><div class="kicker">Stop ${order[id]} of ${nodes.length}${n.era ? `, ${esc(n.era)}` : ""}</div><h2>${esc(n.title)}</h2></div>
         <button class="close-btn" data-close aria-label="Close">×</button>
       </div>
       <div class="d-body">
         <h3>What it is</h3><p>${esc(n.what)}</p>
         <h3>How it fits</h3><p>${esc(n.fits)}</p>
-        ${n.analogy ? `<div class="analogy">💡 ${esc(n.analogy)}</div>` : ""}
+        ${n.analogy ? `<div class="analogy">${esc(n.analogy)}</div>` : ""}
         ${n.try ? `<div class="try-box"><div class="verdict-label">Try it</div>${esc(n.try)}</div>` : ""}
         ${n.tools?.length ? `<h3>Tools on the Atlas</h3><div class="chips">${n.tools.map(toolChip).join("")}</div>` : ""}
-        ${stack ? `<a class="learn" href="index.html#stack=${stack.id}"><span>${stack.emoji}</span><span>Recommended stack: ${esc(stack.title)}</span><span class="arrow">→</span></a>` : ""}
-        ${n.resource ? `<h3>Best single resource</h3><a class="learn" href="${esc(n.resource.url)}" target="_blank" rel="noopener"><span>📖</span><span>${esc(n.resource.title)}</span><span class="arrow">↗</span></a>` : ""}
+        ${stack ? `<a class="learn" href="index.html#stack=${stack.id}"><span>Follow the route: ${esc(stack.title)}</span></a>` : ""}
+        ${n.resource ? `<h3>Best single resource</h3><a class="learn" href="${esc(n.resource.url)}" target="_blank" rel="noopener"><span>${esc(n.resource.title)}</span><span class="arrow">↗</span></a>` : ""}
         ${nav(prevOf[id], "Builds on")}
         ${nav(n.next || [], "Next")}
       </div>
       <div class="d-foot">
         <label class="check"><input type="checkbox" id="done-box" ${done.has(id) ? "checked" : ""}> I understand this</label>
-        ${n.next?.length ? `<button class="btn btn-primary" data-node="${n.next[0]}">Next: ${esc(nodeById[n.next[0]].title)} →</button>` : `<a class="btn btn-primary" href="roles.html">Pick your role →</a>`}
+        ${n.next?.length ? `<button class="btn btn-primary" data-node="${n.next[0]}">Next: ${esc(nodeById[n.next[0]].title)}</button>` : `<a class="btn btn-primary" href="roles.html">Pick your role</a>`}
       </div>`;
     $("#drawer").hidden = false;
     $("#scrim").hidden = false;

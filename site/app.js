@@ -8,6 +8,7 @@
 
   const PRICING = [["all", "All"], ["oss", "Open source"], ["free", "Free"], ["freemium", "Free tier"], ["paid", "Paid"]];
   const PRICE_LABEL = { oss: "Open source", free: "Free", freemium: "Free tier", paid: "Paid" };
+  const PIN = `<svg viewBox="0 0 12 15" aria-hidden="true"><path d="M6 0a6 6 0 0 0-6 6c0 4.2 6 9 6 9s6-4.8 6-9a6 6 0 0 0-6-6Zm0 8.2A2.2 2.2 0 1 1 6 3.8a2.2 2.2 0 0 1 0 4.4Z"/></svg>`;
   const LANG_LABEL = { python: "Python", typescript: "TypeScript", go: "Go", rust: "Rust", cpp: "C++", c: "C", csharp: "C#", java: "Java", swift: "Swift", svelte: "Svelte" };
 
   // ---------- search engine ----------
@@ -134,23 +135,23 @@
     const owner = t.repo.split("/")[0];
     return `<span class="avatar ${size}"><img loading="lazy" alt="" src="https://github.com/${esc(owner)}.png?size=80" onerror="this.replaceWith(document.createTextNode('${letter}'))"></span>`;
   }
-  function card(t, terms) {
-    const uses = t.bestFor.slice(0, 2).map((x) => `<span class="use">${highlight(x, terms)}</span>`).join("");
+  function card(t, terms, grouped = false) {
+    const uses = t.bestFor.slice(0, 2).map((x) => highlight(x, terms)).join("; ");
     return `<article class="card${t.pick ? " is-pick" : ""}" tabindex="0" data-tool="${t.id}">
-      ${t.pick ? `<span class="pick-badge">★ Editor's pick</span>` : ""}
+      ${t.pick ? `<span class="pick-badge">${PIN}Editor's pick</span>` : ""}
       <div class="card-top">${avatar(t)}<div class="card-id"><div class="card-title">${highlight(t.name, terms)}</div>
-        <div class="card-cat">${catById[t.category].emoji} ${esc(catById[t.category].name)} · <span class="price-txt price-${t.pricing}">${PRICE_LABEL[t.pricing]}</span></div></div></div>
+        <div class="card-cat">${grouped ? "" : `${esc(catById[t.category].name)}, `}<span class="price-txt price-${t.pricing}">${grouped ? PRICE_LABEL[t.pricing] : PRICE_LABEL[t.pricing].toLowerCase()}</span></div></div></div>
       <p class="card-why">${highlight(t.why, terms)}</p>
-      <div class="uses">${uses}</div>
+      <p class="uses"><strong>Good for</strong> ${uses}</p>
     </article>`;
   }
 
   function watchCard(w) {
     const c = catById[w.category];
     return `<article class="watch-card">
-      <span class="watch-badge">👀 Watchlist</span>
+      <span class="watch-badge">On the watchlist</span>
       <div class="watch-top"><a href="${esc(w.url)}" target="_blank" rel="noopener"><strong>${esc(w.name)}</strong> ↗</a>
-        <span class="card-cat">${c.emoji} ${esc(c.name)} · revisit ${esc(w.revisit)}</span></div>
+        <span class="card-cat">${esc(c.name)}, next review ${esc(w.revisit)}</span></div>
       <p>${esc(w.pitch)}</p>
       <dl><dt>Holding it back</dt><dd>${esc(w.holdingBack)}</dd><dt>Promote if</dt><dd>${esc(w.promoteIf)}</dd></dl>
     </article>`;
@@ -158,7 +159,7 @@
   function watchSection(items) {
     if (!items.length) return "";
     return `<section class="cat-section watch-section" id="watchlist">
-      <header class="cat-head"><h2>👀 Watchlist</h2><span class="cat-count">${items.length}</span></header>
+      <header class="cat-head"><h2>Watchlist</h2><span class="cat-count">${items.length} tools</span></header>
       <p class="cat-blurb">Promising, not proven yet. These are <strong>not recommendations</strong>; each is re-reviewed on its revisit date.</p>
       <div class="grid">${items.map(watchCard).join("")}</div></section>`;
   }
@@ -176,14 +177,14 @@
   function watchResults(items, standalone) {
     if (!items.length) return "";
     return `<section class="watch-results">
-      <header class="watch-results-head"><h3>👀 ${standalone ? "Found on the watchlist" : "Also on the watchlist"}</h3>
+      <header class="watch-results-head"><h3>${standalone ? "Found on the watchlist" : "Also on the watchlist"}</h3>
         <span>Promising, but <strong>not yet recommended</strong>. Check what's holding each one back.</span></header>
       <div class="grid">${items.map(watchCard).join("")}</div></section>`;
   }
 
   function renderIntents() {
     $("#stacks-anchor").innerHTML = stacks.map((s) =>
-      `<button class="intent" role="listitem" data-stack="${s.id}" aria-pressed="${state.stack === s.id}">${s.emoji} ${esc(s.title)}</button>`).join("");
+      `<li><button class="intent" data-stack="${s.id}" aria-pressed="${state.stack === s.id}"><span class="name">${esc(s.title)}</span><span class="leader"></span><span class="stops">${s.steps.length} steps</span></button></li>`).join("");
   }
 
   function renderStack() {
@@ -193,17 +194,17 @@
     view.hidden = false;
     view.innerHTML = `<div class="stack-card">
       <div class="stack-head">
-        <div><div class="stack-kicker">Recommended stack</div><h2>${s.emoji} ${esc(s.title)}</h2><p>${esc(s.goal)}</p></div>
-        <button class="close-btn" data-close-stack aria-label="Close stack">×</button>
+        <div><div class="stack-kicker">Route, ${s.steps.length} steps</div><h2>${esc(s.title)}</h2><p>${esc(s.goal)}</p></div>
+        <button class="close-btn" data-close-stack aria-label="Close route">×</button>
       </div>
       <ol class="pipeline">${s.steps.map((step, i) => `
         <li class="step">
-          <div class="step-num">${i + 1}</div>
+          <div class="step-num">Step ${i + 1}</div>
           <h4>${esc(step.label)}</h4>
           <p>${esc(step.why)}</p>
           <div class="picks">${step.picks.map((id, j) => {
             const t = byId[id];
-            return `<button class="pick${j === 0 ? " is-default" : ""}" data-tool="${id}">${avatar(t, "xs")}<span>${esc(t.name)}</span>${j === 0 ? '<span class="default">default</span>' : ""}</button>`;
+            return `<button class="pick${j === 0 ? " is-default" : ""}" data-tool="${id}">${avatar(t, "xs")}<span>${esc(t.name)}</span>${j === 0 ? '<span class="default">Default</span>' : ""}</button>`;
           }).join("")}</div>
         </li>`).join("")}
       </ol>
@@ -214,12 +215,17 @@
     const counts = {};
     for (const t of tools) counts[t.category] = (counts[t.category] || 0) + 1;
     $("#cat-list").innerHTML =
-      `<li><button class="cat-btn" data-cat="all" aria-pressed="${state.cat === "all"}">✨ Everything<span class="n">${tools.length}</span></button></li>` +
-      categories.map((c) => `<li><button class="cat-btn" data-cat="${c.id}" aria-pressed="${state.cat === c.id}">${c.emoji} ${esc(c.name)}<span class="n">${counts[c.id] || 0}</span></button></li>`).join("");
+      `<li><button class="cat-btn" data-cat="all" aria-pressed="${state.cat === "all"}">All categories<span class="n">${tools.length}</span></button></li>` +
+      categories.map((c) => `<li><button class="cat-btn" data-cat="${c.id}" aria-pressed="${state.cat === c.id}">${esc(c.name)}<span class="n">${counts[c.id] || 0}</span></button></li>`).join("");
     $("#pricing-seg").innerHTML = PRICING.map(([v, l]) => `<button data-pricing="${v}" aria-pressed="${state.pricing === v}">${l}</button>`).join("");
     const langs = [...new Set(tools.flatMap((t) => t.languages))].sort();
     $("#lang-select").innerHTML = `<option value="all">Any language</option>` +
       langs.map((l) => `<option value="${l}" ${state.lang === l ? "selected" : ""}>${LANG_LABEL[l] || l}</option>`).join("");
+    $("#filter-state").textContent = [
+      state.cat === "all" ? "All categories" : catById[state.cat].name,
+      state.pricing === "all" ? "any price" : PRICE_LABEL[state.pricing].toLowerCase(),
+      state.lang === "all" ? "" : LANG_LABEL[state.lang] || state.lang,
+    ].filter(Boolean).join(", ");
   }
 
   function renderResults() {
@@ -232,9 +238,9 @@
     let meta = !words.length ? `<strong>${list.length}</strong> hand-picked tools`
       : list.length ? `<strong>${list.length}</strong> result${list.length === 1 ? "" : "s"} for ${qLabel}, closest first`
       : `No recommended tools for ${qLabel}`;
-    if (watched.length) meta += ` · ${watched.length} on the watchlist`;
+    if (watched.length) meta += `, plus ${watched.length} on the watchlist`;
     const stillUnmatched = unmatched.filter((w) => !watchWords.has(w));
-    if (stillUnmatched.length) meta += ` · <span class="muted">no match for ${stillUnmatched.map((w) => `“${esc(w)}”`).join(", ")}</span>`;
+    if (stillUnmatched.length) meta += `. <span class="muted">No match for ${stillUnmatched.map((w) => `“${esc(w)}”`).join(", ")}</span>`;
     $("#results-meta").innerHTML = meta;
 
     const suggestion = suggestStack(words);
@@ -242,7 +248,7 @@
     if (suggestion && suggestion.id !== state.stack) {
       sug.hidden = false;
       sug.dataset.stack = suggestion.id;
-      sug.innerHTML = `<span class="sug-emoji">${suggestion.emoji}</span><div><div class="sug-kicker">There's a recommended stack for this</div><strong>${esc(suggestion.title)}</strong></div><span class="go">See the stack →</span>`;
+      sug.innerHTML = `<div><div class="sug-kicker">There's a tested route for this</div><strong>${esc(suggestion.title)}</strong></div><span class="go">Open the route</span>`;
     } else sug.hidden = true;
 
     const out = $("#results");
@@ -251,8 +257,8 @@
       return;
     }
     if (!list.length) {
-      out.innerHTML = `<div class="empty"><div class="empty-ico">🔭</div><p><strong>Nothing on the shortlist fits that yet.</strong></p>
-        <p>Try fewer or different words, or browse a stack above. Know a tool that clears the <a href="${REPO}/blob/main/CURATION.md">bar</a>? <a href="${REPO}/issues/new?template=add-tool.yml">Nominate it</a>.</p></div>`;
+      out.innerHTML = `<div class="empty"><h3>Nothing on the shortlist fits that yet</h3>
+        <p>Try fewer or different words, or start from a goal above. Know a tool that clears the <a href="${REPO}/blob/main/CURATION.md">bar</a>? <a href="${REPO}/issues/new?template=add-tool.yml">Nominate it</a>.</p></div>`;
       return;
     }
     if (words.length) {
@@ -263,9 +269,9 @@
       .map((c) => ({ c, items: list.filter((t) => t.category === c.id).sort((a, b) => (b.pick ? 1 : 0) - (a.pick ? 1 : 0)) }))
       .filter((g) => g.items.length)
       .map(({ c, items }) => `<section class="cat-section" id="cat-${c.id}">
-        <header class="cat-head"><h2>${c.emoji} ${esc(c.name)}</h2><span class="cat-count">${items.length} of max 8</span></header>
+        <header class="cat-head"><h2>${esc(c.name)}</h2><span class="cat-count">${items.length} of 8 places</span></header>
         <p class="cat-blurb">${esc(c.blurb)}</p>
-        <div class="grid">${items.map((t) => card(t)).join("")}</div></section>`).join("")
+        <div class="grid">${items.map((t) => card(t, null, true)).join("")}</div></section>`).join("")
       + watchSection(watchlist.filter((w) => state.cat === "all" || w.category === state.cat));
   }
 
@@ -282,23 +288,24 @@
     const d = $("#detail");
     d.innerHTML = `<div class="detail-body">
       <div class="detail-head">${avatar(t, "lg")}<div><h2>${esc(t.name)}</h2>
-        <div class="card-cat">${c.emoji} ${esc(c.name)} · <span class="price-txt price-${t.pricing}">${PRICE_LABEL[t.pricing]}</span>${t.pick ? ' · <span class="pick-inline">★ Editor\'s pick</span>' : ""}</div></div>
+        <div class="card-cat">${esc(c.name)}, <span class="price-txt price-${t.pricing}">${PRICE_LABEL[t.pricing].toLowerCase()}</span></div>${t.pick ? `<span class="pick-badge">${PIN}Editor's pick</span>` : ""}</div>
         <button class="close-btn" data-close aria-label="Close">×</button></div>
       <p class="lead">${esc(t.description)}</p>
       <div class="verdict"><div class="verdict-label">Why it's on the list</div>${esc(t.why)}</div>
       <h3>Best for</h3>
       <div class="chips">${t.bestFor.map((b) => `<button class="chip" data-search="${esc(b)}">${esc(b)}</button>`).join("")}</div>
-      ${t.learn ? `<h3>Learn it</h3><a class="learn" href="${esc(t.learn.url)}" target="_blank" rel="noopener"><span>📖</span><span>${esc(t.learn.title)}</span><span class="arrow">↗</span></a>` : ""}
+      ${t.learn ? `<h3>Learn it</h3><a class="learn" href="${esc(t.learn.url)}" target="_blank" rel="noopener"><span>${esc(t.learn.title)}</span><span class="arrow">↗</span></a>` : ""}
       <div class="actions">
         <a class="btn btn-primary" href="${esc(t.url)}" target="_blank" rel="noopener">Website ↗</a>
         ${t.repo ? `<a class="btn" href="https://github.com/${esc(t.repo)}" target="_blank" rel="noopener">GitHub ↗</a>` : ""}
         <button class="btn" data-copy="${location.href.split("#")[0]}#tool=${t.id}">Copy link</button>
       </div>
       ${badges ? `<div class="badges">${badges}</div>` : ""}
-      ${inStacks.length ? `<h3>Part of these stacks</h3><div class="chips">${inStacks.map((s) => `<button class="chip" data-stack="${s.id}">${s.emoji} ${esc(s.title)}</button>`).join("")}</div>` : ""}
-      ${reviewByTool[t.id] ? `<div class="review"><strong>📝 Our review (${esc(reviewByTool[t.id].date)}):</strong> ${esc(reviewByTool[t.id].summary)}<span class="ev">${esc(reviewByTool[t.id].evidence)}</span></div>` : ""}
-      ${alts.length ? `<h3>Alternatives on the shortlist</h3><div class="alts">${alts.map((a) => `<button class="alt" data-tool="${a.id}">${avatar(a, "xs")}<span><strong>${esc(a.name)}</strong>${a.pick ? " ★" : ""}<br><small>${esc(a.why)}</small></span></button>`).join("")}</div>` : ""}
+      ${inStacks.length ? `<h3>On these routes</h3><div class="chips">${inStacks.map((s) => `<button class="chip" data-stack="${s.id}">${esc(s.title)}</button>`).join("")}</div>` : ""}
+      ${reviewByTool[t.id] ? `<div class="review"><strong>Our review, ${esc(reviewByTool[t.id].date)}:</strong> ${esc(reviewByTool[t.id].summary)}<span class="ev">${esc(reviewByTool[t.id].evidence)}</span></div>` : ""}
+      ${alts.length ? `<h3>Alternatives on the shortlist</h3><div class="alts">${alts.map((a) => `<button class="alt" data-tool="${a.id}">${avatar(a, "xs")}<span><strong>${esc(a.name)}</strong>${a.pick ? ", editor's pick" : ""}<small>${esc(a.why)}</small></span></button>`).join("")}</div>` : ""}
     </div>`;
+    d.toggleAttribute("data-pick", !!t.pick);
     if (!d.open) d.showModal();
     d.scrollTop = 0;
     setHash({ tool: id });
@@ -378,6 +385,7 @@
   });
 
   // boot
+  if (matchMedia("(max-width: 900px)").matches) $("#filters").open = false;
   $("#count-tools").textContent = tools.length;
   $("#count-cats").textContent = categories.length;
   $("#count-stacks").textContent = stacks.length;

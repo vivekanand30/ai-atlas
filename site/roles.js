@@ -45,8 +45,8 @@
           <div class="level-items">${l.items.map(item).join("")}</div>
         </section>`).join("")}
       </div>
-      <div class="watch-out"><strong>⚠️ Watch out</strong><p>${esc(r.watchOut)}</p></div>
-      ${r.concepts?.length ? `<div class="concepts"><span>📖 Concepts worth knowing:</span>${r.concepts.map((id) => `<a class="chip" href="learn.html#node=${id}">${esc(nodeById[id].title)}</a>`).join("")}</div>` : ""}`;
+      <div class="watch-out"><strong>Watch out</strong><p>${esc(r.watchOut)}</p></div>
+      ${r.concepts?.length ? `<div class="concepts"><span>Concepts worth knowing</span>${r.concepts.map((id) => `<a class="chip" href="learn.html#node=${id}">${esc(nodeById[id].title)}</a>`).join("")}</div>` : ""}`;
   }
 
   function select(id) {
